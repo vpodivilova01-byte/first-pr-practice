@@ -4,6 +4,7 @@ from temperature import (
     celsius_to_fahrenheit,
     celsius_to_kelvin,
     fahrenheit_to_celsius,
+    kelvin_to_celsius,
 )
 
 
@@ -29,6 +30,14 @@ class CelsiusToKelvinTests(unittest.TestCase):
 
     def test_freezing_point(self):
         self.assertAlmostEqual(celsius_to_kelvin(0), 273.15)
+
+
+class KelvinToCelsiusTests(unittest.TestCase):
+    def test_absolute_zero(self):
+        self.assertAlmostEqual(kelvin_to_celsius(0), -273.15)
+
+    def test_freezing_point(self):
+        self.assertAlmostEqual(kelvin_to_celsius(273.15), 0)
 
 
 if __name__ == "__main__":
