@@ -1,6 +1,10 @@
 import unittest
 
-from temperature import celsius_to_fahrenheit, fahrenheit_to_celsius
+from temperature import (
+    celsius_to_fahrenheit,
+    celsius_to_kelvin,
+    fahrenheit_to_celsius,
+)
 
 
 class CelsiusToFahrenheitTests(unittest.TestCase):
@@ -17,6 +21,14 @@ class FahrenheitToCelsiusTests(unittest.TestCase):
 
     def test_boiling_point(self):
         self.assertEqual(fahrenheit_to_celsius(212), 100)
+
+
+class CelsiusToKelvinTests(unittest.TestCase):
+    def test_absolute_zero(self):
+        self.assertAlmostEqual(celsius_to_kelvin(-273.15), 0)
+
+    def test_freezing_point(self):
+        self.assertAlmostEqual(celsius_to_kelvin(0), 273.15)
 
 
 if __name__ == "__main__":
